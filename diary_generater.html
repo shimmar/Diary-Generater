@@ -1,0 +1,43 @@
+<html>
+    <header>
+        <title>日記作成アプリ</title>
+    </header>
+    <body>
+        <h1>Diary Generater</h1>
+        <div>タイトル：<input type="text"></div>
+        <div id="contents"></div><!-- ここに段落を追加していく-->
+        <div><p>新規段落</p>
+            <input type="button" value="テキスト" id="addTextButton">
+            <input type="button" value="写真" id="addPhotoButton">
+        </div>
+    </body>
+</html>
+<script>
+    const contents = document.getElementById("contents")
+    const addTextButton = document.getElementById("addTextButton");
+    const addPhotoButton = document.getElementById("addPhotoButton");
+    let count=0
+    let contentsRecord=[]
+
+    //addContent関数の定義
+
+    addTextButton.addEventListener("click",()=>{
+        contentsRecord.push("text")
+        const newContent = document.createElement("div")
+        newContent.innerHTML = "<textarea id='text" + count + "'></textarea>"
+        contents.appendChild(newContent)
+        count++;
+        console.log(count);
+        console.log(contentsRecord)
+    });
+
+    addPhotoButton.addEventListener("click",()=>{
+        contentsRecord.push("photo")
+        const newTextContent = document.createElement("div")
+        newTextContent.innerHTML = "<textarea id='text" + count + "'></textarea>"
+        contents.appendChild(newTextContent)
+        count++;
+        console.log(count);
+        console.log(contentsRecord)
+    });
+</script>
